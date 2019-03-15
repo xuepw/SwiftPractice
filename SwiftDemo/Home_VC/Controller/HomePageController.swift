@@ -30,6 +30,18 @@ class HomePageController: UIViewController {
         titleLbl.text = "测试标题".pinyinUppercase
         return titleLbl
     }()
+    
+    lazy var testBtn : UIButton = {
+        let testButton = UIButton.init(type: UIButtonType.custom)
+        testButton.frame = CGRect.init(x: 40.0, y: UIHelper.kHeight-UIHelper.safeAreaTopHeight-70.0, width: UIHelper.kWidth-80.0, height: 50.0)
+        testButton.layer.cornerRadius = 5.0;
+        testButton.layer.masksToBounds = true;
+        testButton.backgroundColor = UIColor.colorWithString(str: "#1BABFB")
+        testButton.setTitle("测试", for: UIControlState.normal)
+        testButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        testButton.addTarget(self, action: #selector(testButtonAction(sender:)), for: UIControlEvents.touchUpInside)
+        return testButton
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +50,7 @@ class HomePageController: UIViewController {
         
         self.view.addSubview(self.titleImg)
         self.view.addSubview(self.titleLbl)
+        self.view.addSubview(self.testBtn)
         
         let alertvc = UIAlertController.init(title: "TEST", message: nil, preferredStyle: UIAlertControllerStyle.alert)
         alertvc.addAction(UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (param:UIAlertAction)->Void in
@@ -48,12 +61,32 @@ class HomePageController: UIViewController {
         }))
         self.present(alertvc, animated: true, completion: nil)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.showAnimation(name: "LottieLogo1")
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @objc func testButtonAction(sender: UIButton) -> Void {
+        self.showAnimation(name: "celiang")
+    }
     
+    func showAnimation(name: String) -> Void {
+        let animationView = LOTAnimationView(name: name)
+        animationView.tag = 100;
+        animationView.frame = CGRect.init(x: 20, y: 200, width: UIHelper.kWidth-40, height: 400)
+        self.view.addSubview(animationView)
+        
+        weak var weakSelf = self
+        animationView.play { (finished) in
+            let oldAnimationView = weakSelf!.view.subviewWithTag(tag: 100)
+            oldAnimationView?.removeFromSuperview()
+        }
+    }
 
 }

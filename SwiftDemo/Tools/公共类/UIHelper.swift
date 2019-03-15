@@ -9,10 +9,10 @@
 import UIKit
 
 class UIHelper: NSObject {
-    static let kVersion = UIDevice.current.systemVersion
-    static let kWidth = UIScreen.main.bounds.size.width
-    static let kHeight = UIScreen.main.bounds.size.height
-    static let kScale = UIHelper.kWidth/375.0
+    static let kVersion = Double(UIDevice.current.systemVersion)
+    static let kWidth = Double(UIScreen.main.bounds.size.width)
+    static let kHeight = Double(UIScreen.main.bounds.size.height)
+    static let kScale = Double(UIHelper.kWidth/375.0)
     static let safeAreaTopHeight = (UIHelper.kWidth == 812.0 || UIHelper.kWidth == 896.0) ? 88.0 : 64.0
     static let safeAreaBotHeight = (UIHelper.kWidth == 812.0 || UIHelper.kWidth == 896.0) ? 34.0 : 0.0
     

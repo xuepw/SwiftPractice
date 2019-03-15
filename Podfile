@@ -25,5 +25,6 @@ pod 'SVProgressHUD', '~> 2.2.2'
 #pod 'Bugly'
 #pod 'HyphenateLite', '~> 3.5.2'
 #pod 'FMDB', '~> 2.7.5'
+pod 'lottie-ios'
 
 end

@@ -14,17 +14,25 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - lottie-ios (2.5.2)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - lottie-ios
+  - SVProgressHUD (~> 2.2.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - lottie-ios
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 7e033e772ef60421675fb0369ed40f64d0102d04
+PODFILE CHECKSUM: 8f6aaf12dd092a77d7cd75aab6bf7784de6116d1
 
 COCOAPODS: 1.6.0.beta.2

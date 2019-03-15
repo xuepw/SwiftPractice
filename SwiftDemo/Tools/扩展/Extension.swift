@@ -112,7 +112,7 @@ extension UIView {
         }
     }
     
-    func subviewWithTag(tag: NSInteger) -> Any? {
+    func subviewWithTag(tag: NSInteger) -> UIView? {
         for subview in self.subviews {
             if subview.tag == tag {
                 return subview

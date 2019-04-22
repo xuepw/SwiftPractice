@@ -111,4 +111,11 @@ class UIHelper: NSObject {
         formatter.timeZone = NSTimeZone.system
         return formatter.date(from: formatterStr) ?? Date.init(timeIntervalSince1970: 0)
     }
+    //系统字体
+    class func font(size:CGFloat) -> UIFont {
+        return UIFont.systemFont(ofSize: size*CGFloat(kScale))
+    }
+    class func blodFont(size:CGFloat) -> UIFont {
+        return UIFont.boldSystemFont(ofSize: size*CGFloat(kScale))
+    }
 }

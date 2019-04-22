@@ -34,20 +34,30 @@ class HomePageController: UIViewController {
     lazy var testBtn : UIButton = {
         let testButton = UIButton.init(type: UIButtonType.custom)
         testButton.frame = CGRect.init(x: 40.0, y: UIHelper.kHeight-UIHelper.safeAreaTopHeight-70.0, width: UIHelper.kWidth-80.0, height: 50.0)
-        testButton.layer.cornerRadius = 5.0;
-        testButton.layer.masksToBounds = true;
+        testButton.layer.cornerRadius = 5.0
+        testButton.layer.masksToBounds = true
         testButton.backgroundColor = UIColor.colorWithString(str: "#1BABFB")
         testButton.setTitle("测试", for: UIControlState.normal)
         testButton.setTitleColor(UIColor.white, for: UIControlState.normal)
         testButton.addTarget(self, action: #selector(testButtonAction(sender:)), for: UIControlEvents.touchUpInside)
         return testButton
     }()
+    
+    lazy var rightBtn : UIBarButtonItem = {
+        let customBtn = UIButton.init(type: UIButtonType.custom)
+        customBtn.frame = CGRect.init(x: 0, y: 0, width: 100, height: 30)
+        customBtn.titleLabel?.font = UIHelper.font(size: 15)
+        customBtn.setTitle("Cells", for: UIControlState.normal)
+        customBtn.setTitleColor(UIColor.black, for: UIControlState.normal)
+        customBtn.addTarget(self, action: #selector(rightButtonAction(sender:)), for: UIControlEvents.touchUpInside)
+        return UIBarButtonItem.init(customView: customBtn)
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "首页"
+        self.navigationItem.rightBarButtonItem = self.rightBtn
         self.view.backgroundColor = UIColor.white
-        
         self.view.addSubview(self.titleImg)
         self.view.addSubview(self.titleLbl)
         self.view.addSubview(self.testBtn)
@@ -76,9 +86,14 @@ class HomePageController: UIViewController {
         self.showAnimation(name: "celiang")
     }
     
+    @objc func rightButtonAction(sender: UIButton) -> Void {
+        let newVC:TimerCellsController = TimerCellsController()
+        self.navigationController?.pushViewController(newVC, animated: true)
+    }
+    
     func showAnimation(name: String) -> Void {
         let animationView = LOTAnimationView(name: name)
-        animationView.tag = 100;
+        animationView.tag = 100
         animationView.frame = CGRect.init(x: 20, y: 200, width: UIHelper.kWidth-40, height: 400)
         self.view.addSubview(animationView)
         

@@ -33,7 +33,7 @@ class HomePageController: UIViewController {
     
     lazy var testBtn : UIButton = {
         let testButton = UIButton.init(type: UIButtonType.custom)
-        testButton.frame = CGRect.init(x: 40.0, y: UIHelper.kHeight-UIHelper.safeAreaTopHeight-70.0, width: UIHelper.kWidth-80.0, height: 50.0)
+        testButton.frame = CGRect.init(x: 40.0, y: Double(UIHelper.kHeight)-UIHelper.safeAreaTopHeight-70.0, width: Double(UIHelper.kWidth)-80.0, height: 50.0)
         testButton.layer.cornerRadius = 5.0;
         testButton.layer.masksToBounds = true;
         testButton.backgroundColor = UIColor.colorWithString(str: "#1BABFB")
@@ -42,15 +42,56 @@ class HomePageController: UIViewController {
         testButton.addTarget(self, action: #selector(testButtonAction(sender:)), for: UIControlEvents.touchUpInside)
         return testButton
     }()
+    
+    lazy var masonryContent : UIScrollView = {
+        let content = UIScrollView.init()
+        content.backgroundColor = UIColor.black
+        content.showsVerticalScrollIndicator = false
+        content.showsHorizontalScrollIndicator = false
+        return content
+    }()
+    
+    lazy var masonrySub1 : UIView = {
+        let sub1 = UIView.init()
+        sub1.backgroundColor = UIColor.red
+        return sub1
+    }()
+    
+    lazy var masonrySub2 : UIView = {
+        let sub2 = UIView.init()
+        sub2.backgroundColor = UIColor.green
+        return sub2
+    }()
+    
+    lazy var masonrySub3 : UIView = {
+        let sub3 = UIView.init()
+        sub3.backgroundColor = UIColor.blue
+        return sub3
+    }()
+    
+    lazy var rightBtn : UIBarButtonItem = {
+        let customBtn = UIButton.init(type: UIButtonType.custom)
+        customBtn.frame = CGRect.init(x: 0, y: 0, width: 100, height: 30)
+        customBtn.titleLabel?.font = UIHelper.font(size: 15)
+        customBtn.setTitle("Cells", for: UIControlState.normal)
+        customBtn.setTitleColor(UIColor.black, for: UIControlState.normal)
+        customBtn.addTarget(self, action: #selector(rightButtonAction(sender:)), for: UIControlEvents.touchUpInside)
+        return UIBarButtonItem.init(customView: customBtn)
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "首页"
+        self.navigationItem.rightBarButtonItem = self.rightBtn
         self.view.backgroundColor = UIColor.white
-        
         self.view.addSubview(self.titleImg)
         self.view.addSubview(self.titleLbl)
         self.view.addSubview(self.testBtn)
+        self.view.addSubview(self.masonryContent)
+        self.masonryContent.addSubview(self.masonrySub1)
+        self.masonryContent.addSubview(self.masonrySub2)
+        self.masonryContent.addSubview(self.masonrySub3)
+        self.masonryLayout()
         
         let alertvc = UIAlertController.init(title: "TEST", message: nil, preferredStyle: UIAlertControllerStyle.alert)
         alertvc.addAction(UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (param:UIAlertAction)->Void in
@@ -76,9 +117,14 @@ class HomePageController: UIViewController {
         self.showAnimation(name: "celiang")
     }
     
+    @objc func rightButtonAction(sender: UIButton) -> Void {
+        let newVC:TimerCellsController = TimerCellsController()
+        self.navigationController?.pushViewController(newVC, animated: true)
+    }
+    
     func showAnimation(name: String) -> Void {
         let animationView = LOTAnimationView(name: name)
-        animationView.tag = 100;
+        animationView.tag = 100
         animationView.frame = CGRect.init(x: 20, y: 200, width: UIHelper.kWidth-40, height: 400)
         self.view.addSubview(animationView)
         
@@ -86,6 +132,35 @@ class HomePageController: UIViewController {
         animationView.play { (finished) in
             let oldAnimationView = weakSelf!.view.subviewWithTag(tag: 100)
             oldAnimationView?.removeFromSuperview()
+        }
+    }
+    
+    func masonryLayout() -> Void {
+        self.masonryContent.mas_makeConstraints { (make) in
+            let left = self.titleLbl.left
+            make?.left.offset()(left)
+            make?.right.offset()(-left)
+            make?.top.offset()(self.titleLbl.bottom+20)
+            make?.height.offset()(200)
+        }
+        self.masonrySub1.mas_makeConstraints { (make) in
+            make?.left.offset()(0)
+            make?.centerY.mas_equalTo()(self.masonryContent.mas_centerY)?.setOffset(0)
+            make?.width.mas_equalTo()(self.masonryContent.mas_width)?.multipliedBy()(1/3.0)?.setOffset(0)
+            make?.height.mas_equalTo()(self.masonryContent.mas_height)?.multipliedBy()(1/3.0)?.setOffset(0)
+        }
+        self.masonrySub2.mas_makeConstraints { (make) in
+            make?.top.mas_equalTo()(self.masonrySub1.mas_top)?.setOffset(0)
+            make?.left.mas_equalTo()(self.masonrySub1.mas_right)?.setOffset(0)
+            make?.width.mas_equalTo()(self.masonrySub1.mas_width)?.setOffset(0)
+            make?.height.mas_equalTo()(self.masonrySub1.mas_height)?.setOffset(0)
+        }
+        self.masonrySub3.mas_makeConstraints { (make) in
+            make?.top.mas_equalTo()(self.masonrySub2.mas_top)?.setOffset(0)
+            make?.left.mas_equalTo()(self.masonrySub2.mas_right)?.setOffset(0)
+            make?.width.mas_equalTo()(self.masonrySub2.mas_width)?.setOffset(0)
+            make?.height.mas_equalTo()(self.masonrySub2.mas_height)?.setOffset(0)
+            make?.right.offset()(-20)
         }
     }
 

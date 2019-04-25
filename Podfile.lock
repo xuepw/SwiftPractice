@@ -15,24 +15,28 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - lottie-ios (2.5.2)
+  - Masonry (1.1.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - lottie-ios
+  - Masonry (~> 1.1.0)
   - SVProgressHUD (~> 2.2.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - lottie-ios
+    - Masonry
     - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 8f6aaf12dd092a77d7cd75aab6bf7784de6116d1
+PODFILE CHECKSUM: f8c37d74c1454228d7e4683a8afe6f97b6774f2e
 
 COCOAPODS: 1.6.0.beta.2

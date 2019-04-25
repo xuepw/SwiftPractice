@@ -7,7 +7,25 @@
 		<key>SwiftDemo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>0751D8F1213CE0DD003CD1A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0751D905213CE0E0003CD1A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0751D910213CE0E0003CD1A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

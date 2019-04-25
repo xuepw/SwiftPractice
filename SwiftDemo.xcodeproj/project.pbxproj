@@ -229,45 +229,29 @@
 		0751D929213D0CD7003CD1A3 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				0751D92D213D0D4A003CD1A3 /* 新导航栏 */,
-				0751D92C213D0D12003CD1A3 /* 公共视图 */,
-				0751D92B213D0D0A003CD1A3 /* 公共类 */,
-				0751D92A213D0CED003CD1A3 /* 扩展 */,
+				0751D92B213D0D0A003CD1A3 /* PublicClass */,
+				0751D92A213D0CED003CD1A3 /* Extension */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
 		};
-		0751D92A213D0CED003CD1A3 /* 扩展 */ = {
+		0751D92A213D0CED003CD1A3 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				073ABCE1213E5D2C00ADBC7F /* SwiftDemo-Bridging-Header.h */,
 				0751D930213D0FF7003CD1A3 /* Extension.swift */,
 			);
-			path = "扩展";
+			path = Extension;
 			sourceTree = "<group>";
 		};
-		0751D92B213D0D0A003CD1A3 /* 公共类 */ = {
+		0751D92B213D0D0A003CD1A3 /* PublicClass */ = {
 			isa = PBXGroup;
 			children = (
 				073EE91722168A2200ECB92F /* UIHelper.swift */,
 				07627DA1221A8D3E00CEADB5 /* YYHelper.swift */,
 				07627D9D221A628300CEADB5 /* YYNetworkHelper.swift */,
 			);
-			path = "公共类";
-			sourceTree = "<group>";
-		};
-		0751D92C213D0D12003CD1A3 /* 公共视图 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "公共视图";
-			sourceTree = "<group>";
-		};
-		0751D92D213D0D4A003CD1A3 /* 新导航栏 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "新导航栏";
+			path = PublicClass;
 			sourceTree = "<group>";
 		};
 		B937CB976FCF2108596EF118 /* Frameworks */ = {
@@ -461,6 +445,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
@@ -469,6 +454,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
@@ -666,7 +652,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xuepw.SwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SwiftDemo/Tools/扩展/SwiftDemo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftDemo/Tools/Extension/SwiftDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -689,7 +675,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xuepw.SwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SwiftDemo/Tools/扩展/SwiftDemo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftDemo/Tools/Extension/SwiftDemo-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

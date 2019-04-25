@@ -9,5 +9,9 @@
 import UIKit
 
 class MyModel: NSObject {
-
+    var second: NSInteger
+    
+    override init() {
+        self.second = 0
+    }
 }

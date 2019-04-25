@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07002602226477D200A05E3B /* TimerCellsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07002601226477D200A05E3B /* TimerCellsController.swift */; };
+		0700260422647FD500A05E3B /* MyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700260322647FD500A05E3B /* MyModel.swift */; };
+		0700260622647FF800A05E3B /* TimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700260522647FF800A05E3B /* TimerCell.swift */; };
 		070B12FF223A55DD00C2E764 /* LottieLogo1.json in Resources */ = {isa = PBXBuildFile; fileRef = 070B12FD223A55DD00C2E764 /* LottieLogo1.json */; };
 		070B1300223A55DD00C2E764 /* LottieLogo2.json in Resources */ = {isa = PBXBuildFile; fileRef = 070B12FE223A55DD00C2E764 /* LottieLogo2.json */; };
 		070B130D223A60C100C2E764 /* img_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 070B1302223A60C100C2E764 /* img_1.png */; };
@@ -51,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07002601226477D200A05E3B /* TimerCellsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCellsController.swift; sourceTree = "<group>"; };
+		0700260322647FD500A05E3B /* MyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyModel.swift; sourceTree = "<group>"; };
+		0700260522647FF800A05E3B /* TimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCell.swift; sourceTree = "<group>"; };
 		070B12FD223A55DD00C2E764 /* LottieLogo1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LottieLogo1.json; sourceTree = "<group>"; };
 		070B12FE223A55DD00C2E764 /* LottieLogo2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LottieLogo2.json; sourceTree = "<group>"; };
 		070B1302223A60C100C2E764 /* img_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_1.png; sourceTree = "<group>"; };
@@ -208,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				0751D927213CE1B5003CD1A3 /* HomePageController.swift */,
+				07002601226477D200A05E3B /* TimerCellsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -215,6 +222,7 @@
 		0751D925213CE18A003CD1A3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0700260522647FF800A05E3B /* TimerCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,6 +230,7 @@
 		0751D926213CE18F003CD1A3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0700260322647FD500A05E3B /* MyModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -471,11 +480,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0751D931213D0FF7003CD1A3 /* Extension.swift in Sources */,
+				07002602226477D200A05E3B /* TimerCellsController.swift in Sources */,
 				07627DA2221A8D3E00CEADB5 /* YYHelper.swift in Sources */,
 				0751D8F6213CE0DD003CD1A3 /* AppDelegate.swift in Sources */,
 				0751D928213CE1B5003CD1A3 /* HomePageController.swift in Sources */,
+				0700260622647FF800A05E3B /* TimerCell.swift in Sources */,
 				073EE91822168A2200ECB92F /* UIHelper.swift in Sources */,
 				07627D9E221A628300CEADB5 /* YYNetworkHelper.swift in Sources */,
+				0700260422647FD500A05E3B /* MyModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

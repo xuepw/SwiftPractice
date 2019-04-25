@@ -68,12 +68,22 @@ class HomePageController: UIViewController {
         sub3.backgroundColor = UIColor.blue
         return sub3
     }()
+    
+    lazy var rightBtn : UIBarButtonItem = {
+        let customBtn = UIButton.init(type: UIButtonType.custom)
+        customBtn.frame = CGRect.init(x: 0, y: 0, width: 100, height: 30)
+        customBtn.titleLabel?.font = UIHelper.font(size: 15)
+        customBtn.setTitle("Cells", for: UIControlState.normal)
+        customBtn.setTitleColor(UIColor.black, for: UIControlState.normal)
+        customBtn.addTarget(self, action: #selector(rightButtonAction(sender:)), for: UIControlEvents.touchUpInside)
+        return UIBarButtonItem.init(customView: customBtn)
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "首页"
+        self.navigationItem.rightBarButtonItem = self.rightBtn
         self.view.backgroundColor = UIColor.white
-        
         self.view.addSubview(self.titleImg)
         self.view.addSubview(self.titleLbl)
         self.view.addSubview(self.testBtn)
@@ -107,9 +117,14 @@ class HomePageController: UIViewController {
         self.showAnimation(name: "celiang")
     }
     
+    @objc func rightButtonAction(sender: UIButton) -> Void {
+        let newVC:TimerCellsController = TimerCellsController()
+        self.navigationController?.pushViewController(newVC, animated: true)
+    }
+    
     func showAnimation(name: String) -> Void {
         let animationView = LOTAnimationView(name: name)
-        animationView.tag = 100;
+        animationView.tag = 100
         animationView.frame = CGRect.init(x: 20, y: 200, width: UIHelper.kWidth-40, height: 400)
         self.view.addSubview(animationView)
         

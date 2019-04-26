@@ -119,3 +119,5 @@ class UIHelper: NSObject {
         return UIFont.boldSystemFont(ofSize: size*CGFloat(kScale))
     }
 }
+
+
